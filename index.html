@@ -20,7 +20,7 @@ html {
 }
 
 body {
-	background: #333;
+	background: #183068;
 	color: #333;
 }
 
@@ -30,7 +30,7 @@ p, h1, h2, h3, h4, h5, h6, ul {
 
 a {
 	font-size: 1.6rem;
-	color: #ccc;
+	color: #474747;
 	text-decoration: underline;
 }
 
@@ -73,15 +73,20 @@ ul {
 	margin-left: 20px;
 }
 
+li>a {
+	color: #333;
+}
+
 ol {
 	font-size: 1.6rem;
 	margin-left: 36px;
 }
 
 main {
-	max-width: 100%;
+	max-width: 67rem;
 	float: left;
 	overflow: hidden;
+	background-color: #fff;
 }
 
 main>p, main>div {
@@ -89,12 +94,9 @@ main>p, main>div {
 }
 
 header {
-	max-width: 28rem;
+	max-width: 100%;
 	margin-left: 0px;
-}
-
-header> img {
-	width: 28rem;
+	margin-bottom: -30px;
 }
 
 article {
@@ -103,7 +105,7 @@ article {
 }
 
 aside {
-	width: 280px;
+	width: 26em;
 	float: left;
 }
 
@@ -111,14 +113,23 @@ aside ol {
 	margin: 12px 0 12px 22px;
 }
 
+aside>article {
+	padding: 0px;
+	margin-left: -10px;
+	margin-bottom: 70px;
+	box-shadow: 8px 9px 0px -1px rgba(45, 77, 147, 0.28);
+	-webkit-box-shadow: 8px 9px 0px -1px rgba(45, 77, 147, 0.28);
+	-moz-box-shadow: 8px 9px 0px -1px rgba(45, 77, 147, 0.28);
+	-o-box-shadow: 8px 9px 0px -1px rgba(45, 77, 147, 0.28);
+}
+
 nav {
 	max-width: 28rem;
 	position: relative;
 	display: block;
-	color: #CDCDCD;
 	margin: 24px 0;
-	background-color: #474747;
 	top: 0px;
+	left: 36px;
 }
 
 nav>ul {
@@ -132,46 +143,75 @@ nav>ul>li {
 }
 
 nav a {
-	color: #ddd;
+	color: #474747;
 	text-decoration: none;
 }
 
+a.language {
+  color: #474747;
+}
+
 #wrapper {
+	position: relative;
 	max-width: 96rem;
 	margin: 0 auto;
 	padding: 48px 10px 72px;
-	background-color: #fff
+	background-color: #EAEAEA;
+	min-height: 100vh;
+	z-index: 99;
+	box-shadow: 0px 0px 14px 2px rgba(0, 0, 0, 0.75);
+	-moz-box-shadow: 0px 0px 14px 2px rgba(0, 0, 0, 0.75);
+	-webkit-box-shadow: 0px 0px 14px 2px rgba(0, 0, 0, 0.75);
 }
 
 #modal {
 	position: fixed;
 	height: 100%;
 	width: 100%;
-	background-color: rgba(0, 0, 0, 0.80);
-	z-index: 99;
+	background-color: rgba(1, 3, 39, 0.91);
+	z-index: 1;
+	top: 0px;
+}
+
+#logo-link {
+	text-decoration: none;
+	color: #000;
+	position: relative;
+	display: block;
+	background-color: red;
+	padding: 15px 20px;
+	max-width: 22rem;
 }
 
 #logo-text {
 	position: relative;
-	top: -54px;
-	left: 11px;
-	font-size: 2.5rem;
+	/* 	top: -59px;
+	left: 27px; */
+	font-size: 2.7rem;
 }
 
-#background {
+#language-box {
 	display: inline;
 	list-style-type: none;
 	float: right;
 	margin-top: -17px;
 	display: none;
+	margin-right: 20px;
 }
 
 #terms {
 	margin-left: 0px;
 }
 
+#mc_embed_signup {
+	background: #6BB6FF !important;
+	clear: left;
+	font: 14px Helvetica, Arial, sans-serif;
+	padding: 22px;
+}
+
 @media all and (min-width: 600px) {
-	#background {
+	#language-box {
 		display: block;
 	}
 	nav {
@@ -194,13 +234,23 @@ nav a {
 	}
 }
 
-@media all and (min-width: 1060px) {
-	#background {
+@media all and (min-width: 1020px) {
+	header {
+		max-width: 100%;
+		margin-left: 0px;
+		margin-bottom: -30px;
+	}
+	#language-box {
 		display: block;
 	}
+	main {
+		max-width: 67rem;
+		padding: 15px;
+	}
 	nav {
-		max-width: 100%;
-		top: -10px;
+		max-width: 550px;
+		top: -63px;
+		margin-left: 360px;
 	}
 	nav>ul>li {
 		display: inline;
@@ -209,6 +259,7 @@ nav a {
 	}
 	aside {
 		float: right;
+		margin-top: -15px;
 	}
 	#wrapper {
 		max-width: 96rem;
@@ -216,6 +267,8 @@ nav a {
 	}
 	#terms {
 		margin-left: -325px;
+		position: relative;
+		top: 50px;
 	}
 }
 </style>
@@ -224,135 +277,202 @@ nav a {
 	<div id="modal"></div>
 	<div id="wrapper">
 
-		<p id="background">
-			<a href="#" class="tubular-play">Play</a>&nbsp;|&nbsp;<a href="#" class="tubular-pause">Pause</a>
-		</p>
+		<div id="language-box">
+      <a href="/nl" class="language">NL</a>&nbsp;|&nbsp;<a href="/" class="language">EN</a>
+<!--       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<a href="#" class="tubular-play">Play</a>&nbsp;|&nbsp;<a href="#" class="tubular-pause">Pause</a> -->
+		</div>
 
-		<main> <header>
-			<img src="http://conversion.partners/media/logo.png" alt="Conversion Partners logo" />
-			<div id="logo-text">
-				<span style="color: #fff; font-weight: bold;">Conversion</span> | Partners
-			</div>
+		<header>
+			<a id="logo-link" href="">
+				<div id="logo-text">
+					<span style="color: #fff; font-weight: bold;">Conversion</span> | Partners
+				</div>
+			</a>
+
+
+
+			<nav>
+				<ul>
+					<li><a href="/">Home</a></li>
+					<li><a href="/en/products.html">Products</a></li>
+					<li><a href="/en/services.html">Services</a></li>
+					<li><a href="/en/pricing.html">Pricing</a></li>
+					<li><a href="/en/contact.html">Contact</a></li>
+				</ul>
+
+			</nav>
+
 		</header>
 
+		<main>
 
-		<nav>
-			<ul>
-				<li><a href="#">Home</a></li>
-				<li><a href="#">Show cases</a></li>
-				<li><a href="#">Technology stack</a></li>
-				<li><a href="#">Our Pulse</a></li>
-				<li><a href="#">Contact</a></li>
-			</ul>
 
-		</nav>
+
 
 
 		<article>
-			<h1>TAILOR MADE E-COMMERCE SOLUTIONS</h1>
+			<h1>Just One Powerful Method</h1>
+			<img src="media/3-steps.jpg"> <br> <br> <br>
+			<h2>Test</h2>
 			<p>With a team of professional programmers and data analysts, we have more than 15 years of experience ready to
 				boost your ecommerce performance. With a business driven aproach we ensure that we will operate as a team and that
 				your business gets the attention it deserves.</p>
 		</article>
 		<article>
-			<h2>Intelligent Store Management System</h2>
-			<h3>Analyze and Track</h3>
+			<h2>Analyze</h2>
 			<p>How about the shop that can give you accurate suggestions on what is going on with your business? Customer
 				behavior are always tracked and analyzed. It is possible to predict the future buying and seasonal change in the
 				popularity of the product etc. And all this will be done automatically.</p>
 		</article>
 		<article>
-			<h2>Strong Partnership with Our Clients</h2>
-			<h3>Selected Group of Clients</h3>
+			<h2>Improve</h2>
 			<p>We choose not to work with massive amount of clients but rather selected group of small-medium business who is
-				willing to share and work together in close collaboration. For the best Results.</p>
+				willing to share and work together in close collaboration. This ensures the best Results.</p>
 		</article>
-		<article>
-			<h2>Business models</h2>
-			<ul>
-				<li>Fixed price model.
-					<ul>
-						<li>Cost will be calculated based on the amount of work that is necessary to complete the project.</li>
-					</ul>
-				</li>
-				<li>Subscription model.
-					<ul>
-						<li>Two kinds of models are possible here. Short term subscription. Long term with ownership of the shop at
-							the end of the period.</li>
-					</ul>
-				</li>
-				<li>Participation model.
-					<ul>
-						<li>We believe in you and want to partner up. Based on your activity and the possibilities in the future we
-							will make a plan for the long term about cost and investments. Vrijheid om alles te doen met de webshops qua
-							uiterlijk en werking. Investeringsrisico Core9 afdekken Ownership voor eerste 15 jaar, daarna is investering
-							voldoende terugbetaald Werken met KPI's om elkaar aan te houden (voorraad, levering, prijsstelling, assortiment,
-							website quality, zoek resultaten, ondersteuning van nieuwe technologiën, zoals mobiel etc.) Betrouwbare partner
-							door baat bij omzet Orders worden aangeleverd tegen percentage (10%) Ontzorgen van internet werkzaamheden (zoals
-							data, adverteren, innovatie en seo) Worst case: Online platform failliet, core9 naar andere partner. Core9 dood,
-							online platform naar andere partner Vanuit core9 is het altijd opzegbaar (die is immers eigenaar), ownership gaat
-							dan terug naar online platform Vanuit core9 is het mogelijk om een andere leverancier te nemen, mits online
-							platform aantoonbaar geen KPI's haalt. Vanuit online platform is mogelijk naar een andere partij te gaan, mits
-							core9 aantoonbaar geen KPI's haalt. Voor online platform is het goedkoper (zeker in het begin) en op de lange
-							termijn staan de kosten altijd in verhouding met gemaakte omzet</li>
-					</ul>
-				</li>
-			</ul>
-		</article>
+
 		</main>
 
 
 		<aside>
 			<article>
-				<h2>Download</h2>
-				<p>
-					<a href="https://github.com/core9">Download our high performance <br> code on github
-					</a>
-				</p>
+
+				<!-- Begin MailChimp Signup Form -->
+				<link href="//cdn-images.mailchimp.com/embedcode/classic-081711.css" rel="stylesheet" type="text/css">
+				<style type="text/css">
+#mc_embed_signup {
+	background: #fff;
+	clear: left;
+	font: 14px Helvetica, Arial, sans-serif;
+}
+/* Add your own MailChimp form style overrides in your site stylesheet or in this style block.
+     We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+</style>
+				<div id="mc_embed_signup">
+					<form action="//partners.us9.list-manage.com/subscribe/post?u=440ce976ca5304343cc1d6be1&amp;id=f28c599892"
+						method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank"
+						novalidate
+					>
+						<div id="mc_embed_signup_scroll">
+							<h2>Find out how we increase your revenue</h2>
+
+							<div class="mc-field-group">
+								<label for="mce-EMAIL">Email Address </label> <input type="email" value="" name="EMAIL" class="required email"
+									id="mce-EMAIL"
+								>
+							</div>
+							<div class="mc-field-group">
+								<label for="mce-FNAME">First Name </label> <input type="text" value="" name="FNAME" class="" id="mce-FNAME">
+							</div>
+							<div class="mc-field-group">
+								<label for="mce-LNAME">Last Name </label> <input type="text" value="" name="LNAME" class="" id="mce-LNAME">
+							</div>
+							<div class="mc-field-group">
+								<label for="mce-MMERGE3">Monthly visitors to your website </label> <select name="MMERGE3" class=""
+									id="mce-MMERGE3"
+								>
+									<option value=""></option>
+									<option value="Less then 5000">Less then 5000</option>
+									<option value="Between 5,000 and 10,000">Between 5,000 and 10,000</option>
+									<option value="Between 10,000 and 50,000">Between 10,000 and 50,000</option>
+									<option value="More then 50,000">More then 50,000</option>
+
+								</select>
+							</div>
+							<div class="mc-field-group">
+								<label for="mce-MMERGE4">What is your annual online sales? </label> <select name="MMERGE4" class=""
+									id="mce-MMERGE4"
+								>
+									<option value=""></option>
+									<option value="Less  then €100,000">Less then €100,000</option>
+									<option value="€250,000 - €500,000">€250,000 - €500,000</option>
+									<option value="€500,000 - €1,000,000">€500,000 - €1,000,000</option>
+									<option value="€1,000,000 - €5,000,000">€1,000,000 - €5,000,000</option>
+									<option value="More then €5,000,000">More then €5,000,000</option>
+
+								</select>
+							</div>
+							<div id="mce-responses" class="clear">
+								<div class="response" id="mce-error-response" style="display: none"></div>
+								<div class="response" id="mce-success-response" style="display: none"></div>
+							</div>
+							<!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+							<div style="position: absolute; left: -5000px;">
+								<input type="text" name="b_440ce976ca5304343cc1d6be1_f28c599892" tabindex="-1" value="">
+							</div>
+							<div class="clear">
+								<input type="submit" value="Submit" name="subscribe" id="mc-embedded-subscribe" class="button">
+							</div>
+						</div>
+					</form>
+				</div>
+				<script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script>
+				<script type='text/javascript'>
+					(function($) {
+						window.fnames = new Array();
+						window.ftypes = new Array();
+						fnames[0] = 'EMAIL';
+						ftypes[0] = 'email';
+						fnames[1] = 'FNAME';
+						ftypes[1] = 'text';
+						fnames[2] = 'LNAME';
+						ftypes[2] = 'text';
+						fnames[3] = 'MMERGE3';
+						ftypes[3] = 'dropdown';
+						fnames[4] = 'MMERGE4';
+						ftypes[4] = 'dropdown';
+					}(jQuery));
+					var $mcj = jQuery.noConflict(true);
+				</script>
+				<!--End mc_embed_signup-->
+
+
 			</article>
+
 			<article>
-				<h2>Credits</h2>
-				<p>
-					Inspired by many <a href="http://en.wikipedia.org/wiki/Open_source">open source</a> projects. <br> We would
-					like to thank the following projects : <br>
-				</p>
-				<ul>
-					<li>Magnolia</li>
-					<li>Magento</li>
-					<li>WordPress</li>
-					<li>Spring framework</li>
-					<li>Vert.x</li>
-					<li>MongoDB</li>
-					<li>Java 8</li>
-				</ul>
-				<p>
-					<br>Licensed under <a href="http://opensource.org/licenses/BSD-3-Clause">BSD license</a>.
-				</p>
+	<!-- Begin MailChimp Signup Form -->
+<link href="//cdn-images.mailchimp.com/embedcode/classic-081711.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+  #mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; }
+  /* Add your own MailChimp form style overrides in your site stylesheet or in this style block.
+     We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+</style>
+<div id="mc_embed_signup">
+<form action="//partners.us9.list-manage.com/subscribe/post?u=440ce976ca5304343cc1d6be1&amp;id=64a05b13b0" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+    <div id="mc_embed_signup_scroll">
+  <h2>Download case study</h2>
+<div class="mc-field-group">
+  <label for="mce-EMAIL">Email Address
+</label>
+  <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL">
+</div>
+<div class="mc-field-group">
+  <label for="mce-FNAME">First Name </label>
+  <input type="text" value="" name="FNAME" class="" id="mce-FNAME">
+</div>
+<div class="mc-field-group">
+  <label for="mce-LNAME">Last Name </label>
+  <input type="text" value="" name="LNAME" class="" id="mce-LNAME">
+</div>
+  <div id="mce-responses" class="clear">
+    <div class="response" id="mce-error-response" style="display:none"></div>
+    <div class="response" id="mce-success-response" style="display:none"></div>
+  </div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+    <div style="position: absolute; left: -5000px;"><input type="text" name="b_440ce976ca5304343cc1d6be1_64a05b13b0" tabindex="-1" value=""></div>
+    <div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+    </div>
+</form>
+</div>
+<script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script><script type='text/javascript'>(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[1]='FNAME';ftypes[1]='text';fnames[2]='LNAME';ftypes[2]='text';}(jQuery));var $mcj = jQuery.noConflict(true);</script>
+<!--End mc_embed_signup-->
 			</article>
-			<article>
-				<h2>Updates</h2>
-				<p>
-					Latest updates and news items<br>
-				</p>
-				<ul>
-					<li>Magnolia</li>
-					<li>Magento</li>
-					<li>WordPress</li>
-					<li>Spring framework</li>
-					<li>Vert.x</li>
-					<li>MongoDB</li>
-					<li>Java 8</li>
-				</ul>
-				<p>
-					<br> <a href="http://opensource.org/licenses/BSD-3-Clause">Register for Updates</a>.
-				</p>
-			</article>
+
 		</aside>
 
 
 		<footer style="clear: both; text-align: center;">
 			<div id="terms">
-				<h4 style="display: inline;">© 2014 Conversion Partners.</h4>
+				<h4 style="display: inline;">© 2015 Conversion Partners.</h4>
 				&nbsp;|&nbsp; <a href="">Terms</a> &nbsp;|&nbsp; <a href="">Privacy</a>
 			</div>
 		</footer>
